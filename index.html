@@ -792,6 +792,13 @@
       margin-bottom: 4px;
     }
 
+    .menu-desc {
+      color: var(--ink-soft);
+      font-size: 12.5px;
+      line-height: 1.5;
+      margin-bottom: 8px;
+    }
+
     .menu-price {
       color: var(--orange-dark);
       font-family: var(--font-display);
@@ -811,6 +818,131 @@
       border-radius: 99px;
       font-family: var(--font-display);
       box-shadow: 0 4px 10px rgba(240, 169, 60, 0.4);
+    }
+
+    /* ============ Menu Modal Styling ============ */
+    .menu-modal {
+      position: fixed;
+      inset: 0;
+      z-index: 110;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      padding: 20px;
+    }
+
+    .menu-modal.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    .menu-modal-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(43, 33, 24, 0.6);
+      backdrop-filter: blur(4px);
+    }
+
+    .menu-modal-content {
+      position: relative;
+      background: var(--white);
+      width: 100%;
+      max-width: 600px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+      transform: scale(0.9);
+      transition: transform 0.3s ease;
+      z-index: 1;
+      border: 1px solid var(--line);
+    }
+
+    .menu-modal.active .menu-modal-content {
+      transform: scale(1);
+    }
+
+    .menu-modal-close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 32px;
+      color: var(--ink-soft);
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: color 0.2s;
+      z-index: 10;
+      line-height: 1;
+    }
+
+    .menu-modal-close:hover {
+      color: var(--orange-dark);
+    }
+
+    .menu-modal-body {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+
+    @media (min-width: 520px) {
+      .menu-modal-body {
+        grid-template-columns: 1fr 1.2fr;
+      }
+    }
+
+    .menu-modal-img-wrap {
+      aspect-ratio: 1/1;
+      background: linear-gradient(135deg, var(--orange-soft), #FFE6CC);
+      overflow: hidden;
+    }
+
+    .menu-modal-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .menu-modal-info {
+      padding: 30px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .menu-modal-info h3 {
+      font-family: var(--font-display);
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .menu-modal-info p {
+      color: var(--ink-soft);
+      font-size: 14.5px;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .menu-modal-info .menu-price {
+      font-size: 20px;
+      margin-bottom: 24px;
+      display: inline-block;
+    }
+
+    .menu-modal-actions {
+      margin-top: auto;
+    }
+    
+    .menu-modal-actions .btn {
+      width: 100%;
+    }
+
+    .menu-card {
+      cursor: pointer;
     }
 
     /* ============ Tentang ============ */
@@ -1283,41 +1415,52 @@
       .hero {
         text-align: center;
       }
+
       .hero-grid {
         justify-items: center;
       }
+
       .hero p.lead {
         margin-left: auto;
         margin-right: auto;
       }
+
       .hero-actions {
         justify-content: center;
       }
+
       .hero-info-row {
         justify-content: center;
       }
+
       .hero-visual {
         margin-top: 24px;
       }
     }
 
     @media (max-width: 779px) {
+
       /* Menu Centering */
       .menu-tabs {
         justify-content: safe center;
       }
-      
+
       /* Footer Centering */
       .footer-grid {
         text-align: center;
       }
+
       .foot-logo {
         justify-content: center;
       }
+
       .foot-social {
         justify-content: center;
       }
-      footer ul, footer p, footer li {
+
+      footer ul,
+      footer p,
+      footer li {
         text-align: center;
       }
     }
@@ -1493,27 +1636,35 @@
           <div class="menu-card reveal">
             <div class="menu-thumb"><img src="assets/bakmie/bakmi polos.png" alt="Bakmi Polos Khas Semarang"></div>
             <div class="menu-body">
-              <h4>Bakmi Polos</h4><span class="menu-price">Rp19.000</span>
+              <h4>Bakmi Polos</h4>
+              <p class="menu-desc">Bakmi Ayam + Kuah</p>
+              <span class="menu-price">Rp19.000</span>
             </div>
           </div>
           <div class="menu-card reveal">
             <div class="menu-thumb"><img src="assets/bakmie/bakmi bakso.png" alt="Bakmi Bakso Khas Semarang"></div>
             <span class="menu-badge">🔥 Favorit</span>
             <div class="menu-body">
-              <h4>Bakmi Bakso</h4><span class="menu-price">Rp21.000</span>
+              <h4>Bakmi Bakso</h4>
+              <p class="menu-desc">Bakmi Ayam + Bakso</p>
+              <span class="menu-price">Rp21.000</span>
             </div>
           </div>
           <div class="menu-card reveal">
             <div class="menu-thumb"><img src="assets/bakmie/bakmi pangsit.png" alt="Bakmi Pangsit Khas Semarang"></div>
             <div class="menu-body">
-              <h4>Bakmi Pangsit</h4><span class="menu-price">Rp21.000</span>
+              <h4>Bakmi Pangsit</h4>
+              <p class="menu-desc">Bakmi Ayam + Pangsit Rebus</p>
+              <span class="menu-price">Rp21.000</span>
             </div>
           </div>
           <div class="menu-card reveal">
             <div class="menu-thumb"><img src="assets/bakmie/bakmi komplit.png" alt="Bakmi Komplit Khas Semarang"></div>
             <span class="menu-badge">⭐ Best Seller</span>
             <div class="menu-body">
-              <h4>Bakmi Komplit</h4><span class="menu-price">Rp23.000</span>
+              <h4>Bakmi Komplit</h4>
+              <p class="menu-desc">Bakmi Ayam + Pangsit Rebus + Bakso</p>
+              <span class="menu-price">Rp23.000</span>
             </div>
           </div>
         </div>
@@ -1522,20 +1673,26 @@
           <div class="menu-card reveal">
             <div class="menu-thumb"><img src="assets/kwetiaw/kwetiaw polos.png" alt="Kwetiaw Polos Khas Semarang"></div>
             <div class="menu-body">
-              <h4>Kwetiaw Polos</h4><span class="menu-price">Rp19.000</span>
+              <h4>Kwetiaw Polos</h4>
+              <p class="menu-desc">Kwetiau Ayam + Kuah</p>
+              <span class="menu-price">Rp19.000</span>
             </div>
           </div>
           <div class="menu-card reveal">
             <div class="menu-thumb"><img src="assets/kwetiaw/kwetiaw bakso.png" alt="Kwetiaw Bakso Khas Semarang"></div>
             <div class="menu-body">
-              <h4>Kwetiaw Bakso</h4><span class="menu-price">Rp21.000</span>
+              <h4>Kwetiaw Bakso</h4>
+              <p class="menu-desc">Kwetiau + Bakso</p>
+              <span class="menu-price">Rp21.000</span>
             </div>
           </div>
           <div class="menu-card reveal">
             <div class="menu-thumb"><img src="assets/kwetiaw/kwetiaw pangsit.png" alt="Kwetiaw Pangsit Khas Semarang">
             </div>
             <div class="menu-body">
-              <h4>Kwetiaw Pangsit</h4><span class="menu-price">Rp21.000</span>
+              <h4>Kwetiaw Pangsit</h4>
+              <p class="menu-desc">Kwetiau + Pangsit Rebus</p>
+              <span class="menu-price">Rp21.000</span>
             </div>
           </div>
           <div class="menu-card reveal">
@@ -1543,7 +1700,9 @@
             </div>
             <span class="menu-badge">⭐ Best Seller</span>
             <div class="menu-body">
-              <h4>Kwetiaw Komplit</h4><span class="menu-price">Rp23.000</span>
+              <h4>Kwetiaw Komplit</h4>
+              <p class="menu-desc">Kwetiau + Pangsit Rebus + Bakso</p>
+              <span class="menu-price">Rp23.000</span>
             </div>
           </div>
         </div>
@@ -1552,27 +1711,35 @@
           <div class="menu-card reveal">
             <div class="menu-thumb"><img src="assets/bihun/bihun polos.png" alt="Bihun Polos Khas Semarang"></div>
             <div class="menu-body">
-              <h4>Bihun Polos</h4><span class="menu-price">Rp19.000</span>
+              <h4>Bihun Polos</h4>
+              <p class="menu-desc">Bihun Ayam + Kuah</p>
+              <span class="menu-price">Rp19.000</span>
             </div>
           </div>
           <div class="menu-card reveal">
             <div class="menu-thumb"><img src="assets/bihun/bihun bakso.png" alt="Bihun Bakso Khas Semarang"></div>
             <div class="menu-body">
-              <h4>Bihun Bakso</h4><span class="menu-price">Rp21.000</span>
+              <h4>Bihun Bakso</h4>
+              <p class="menu-desc">Bihun + Bakso</p>
+              <span class="menu-price">Rp21.000</span>
             </div>
           </div>
           <div class="menu-card reveal">
             <div class="menu-thumb"><img src="assets/bihun/bihun pangsit.png" alt="Bihun Pangsit Rebus Khas Semarang">
             </div>
             <div class="menu-body">
-              <h4>Bihun Pangsit Rebus</h4><span class="menu-price">Rp21.000</span>
+              <h4>Bihun Pangsit Rebus</h4>
+              <p class="menu-desc">Bihun + Pangsit Rebus</p>
+              <span class="menu-price">Rp21.000</span>
             </div>
           </div>
           <div class="menu-card reveal">
             <div class="menu-thumb"><img src="assets/bihun/bihun komplit.png" alt="Bihun Komplit Khas Semarang"></div>
             <span class="menu-badge">🔥 Favorit</span>
             <div class="menu-body">
-              <h4>Bihun Komplit</h4><span class="menu-price">Rp23.000</span>
+              <h4>Bihun Komplit</h4>
+              <p class="menu-desc">Bihun + Pangsit Rebus + Bakso</p>
+              <span class="menu-price">Rp23.000</span>
             </div>
           </div>
         </div>
@@ -1824,6 +1991,27 @@
     <div class="foot-bottom">© 2025 Bakmie Ayam Semarang. All Rights Reserved.</div>
   </footer>
 
+  <!-- ============ MENU MODAL ============ -->
+  <div id="menuModal" class="menu-modal" aria-hidden="true" role="dialog">
+    <div class="menu-modal-overlay" id="modalOverlay"></div>
+    <div class="menu-modal-content">
+      <button class="menu-modal-close" id="modalClose" aria-label="Tutup Detail Menu">&times;</button>
+      <div class="menu-modal-body">
+        <div class="menu-modal-img-wrap">
+          <img id="modalImg" src="" alt="">
+        </div>
+        <div class="menu-modal-info">
+          <h3 id="modalName"></h3>
+          <p id="modalDesc"></p>
+          <span id="modalPrice" class="menu-price"></span>
+          <div class="menu-modal-actions">
+            <a href="https://gofood.link/a/yhxW2Wq" target="_blank" rel="noopener" class="btn btn-primary">🛵 Pesan via GoFood</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     // Sticky header
     const header = document.getElementById('site-header');
@@ -1837,7 +2025,13 @@
     const mobileClose = document.getElementById('mobileClose');
     function closeMenu() { mobileMenu.classList.remove('open'); navToggle.setAttribute('aria-expanded', 'false'); }
     navToggle.addEventListener('click', () => {
-      mobileMenu.classList.add('open'); navToggle.setAttribute('aria-expanded', 'true');
+      const isOpen = mobileMenu.classList.contains('open');
+      if (isOpen) {
+        closeMenu();
+      } else {
+        mobileMenu.classList.add('open');
+        navToggle.setAttribute('aria-expanded', 'true');
+      }
     });
     mobileClose.addEventListener('click', closeMenu);
     mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
@@ -1865,6 +2059,52 @@
       entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
     }, { threshold: 0.12 });
     revealEls.forEach(el => io.observe(el));
+
+    // Menu Detail Modal functionality
+    const menuModal = document.getElementById('menuModal');
+    const modalOverlay = document.getElementById('modalOverlay');
+    const modalClose = document.getElementById('modalClose');
+    const modalImg = document.getElementById('modalImg');
+    const modalName = document.getElementById('modalName');
+    const modalDesc = document.getElementById('modalDesc');
+    const modalPrice = document.getElementById('modalPrice');
+
+    function openModal(card) {
+      const img = card.querySelector('.menu-thumb img').src;
+      const alt = card.querySelector('.menu-thumb img').alt;
+      const name = card.querySelector('.menu-body h4').textContent;
+      const desc = card.querySelector('.menu-desc') ? card.querySelector('.menu-desc').textContent : '';
+      const price = card.querySelector('.menu-price').textContent;
+
+      modalImg.src = img;
+      modalImg.alt = alt;
+      modalName.textContent = name;
+      modalDesc.textContent = desc || "Hidangan lezat khas Semarang dengan cita rasa pilihan.";
+      modalPrice.textContent = price;
+
+      menuModal.classList.add('active');
+      menuModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal() {
+      menuModal.classList.remove('active');
+      menuModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+    }
+
+    document.querySelectorAll('.menu-card').forEach(card => {
+      card.addEventListener('click', () => openModal(card));
+    });
+
+    modalClose.addEventListener('click', closeModal);
+    modalOverlay.addEventListener('click', closeModal);
+    
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && menuModal.classList.contains('active')) {
+        closeModal();
+      }
+    });
   </script>
 </body>
 
