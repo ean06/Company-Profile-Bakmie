@@ -1277,6 +1277,50 @@
       left: 10px;
       top: 10px;
     }
+
+    /* ============ Responsive Centering adjustments (Non-Desktop) ============ */
+    @media (max-width: 979px) {
+      .hero {
+        text-align: center;
+      }
+      .hero-grid {
+        justify-items: center;
+      }
+      .hero p.lead {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-actions {
+        justify-content: center;
+      }
+      .hero-info-row {
+        justify-content: center;
+      }
+      .hero-visual {
+        margin-top: 24px;
+      }
+    }
+
+    @media (max-width: 779px) {
+      /* Menu Centering */
+      .menu-tabs {
+        justify-content: safe center;
+      }
+      
+      /* Footer Centering */
+      .footer-grid {
+        text-align: center;
+      }
+      .foot-logo {
+        justify-content: center;
+      }
+      .foot-social {
+        justify-content: center;
+      }
+      footer ul, footer p, footer li {
+        text-align: center;
+      }
+    }
   </style>
 </head>
 
@@ -1536,7 +1580,7 @@
         <div class="menu-panel menu-grid" id="panel-tambahan"
           style="grid-template-columns:1fr;max-width:420px;margin:0 auto;">
           <div class="menu-card reveal">
-            <div class="menu-thumb"><span class="ph-icon">🥟</span></div>
+            <div class="menu-thumb"><img src="assets/pangsit.png" alt="Pangsit Khas Semarang"></div>
             <div class="menu-body">
               <h4>Pangsit Rebus</h4><span class="menu-price">Rp19.000</span>
             </div>
@@ -1549,9 +1593,7 @@
     <section id="tentang">
       <div class="container about-grid">
         <div class="about-photo reveal">
-          <span style="font-size:60px;opacity:0.6;">🏠🍜</span>
-          <div class="placeholder-label">Foto kedai &amp; dapur akan diperbarui setelah dokumentasi terbaru tersedia.
-          </div>
+          <img src="assets/b.png" alt="Toko">
         </div>
         <div class="about-text reveal">
           <span class="eyebrow">Tentang Kami</span>
@@ -1576,11 +1618,14 @@
           <h2 class="section-title">Galeri Kami</h2>
         </div>
         <div class="gallery-grid">
-          <div class="gallery-item reveal"><img src="bakmi-ayam.jpg" alt="Foto bakmi ayam khas Semarang"><span
-              class="gtag">Foto Makanan</span></div>
-          <div class="gallery-item reveal"><span class="ph-icon">🏪</span><span class="gtag">Foto Kedai</span></div>
-          <div class="gallery-item reveal"><span class="ph-icon">👨‍🍳</span><span class="gtag">Foto Dapur</span></div>
-          <div class="gallery-item reveal"><span class="ph-icon">🙋</span><span class="gtag">Foto Pelanggan</span></div>
+          <div class="gallery-item reveal"><img src="assets/a.png" alt="Foto bakmi ayam khas Semarang"><span
+              class="gtag">Foto Kedai</span></div>
+          <div class="gallery-item reveal"><img src="assets/b.png" alt="Foto bakmi ayam khas Semarang"><span
+              class="gtag">Foto Dapur</span></div>
+          <div class="gallery-item reveal"><img src="assets/c.jpg" alt="Foto bakmi ayam khas Semarang"><span
+              class="gtag">Foto Pesanan Online</span></div>
+          <div class="gallery-item reveal"><img src="assets/d.jpg" alt="Foto bakmi ayam khas Semarang"><span
+              class="gtag">Foto Bakmi</span></div>
         </div>
         <p class="gallery-note">Foto akan diperbarui setelah dokumentasi terbaru tersedia.</p>
       </div>
